@@ -1,10 +1,13 @@
 """ Homework 06.
 
-# You have list of tuples. Each tuple represents: name, age, some sum, last name, sex
+# You have list of tuples. Each tuple represents:
+# name, age, some sum, last name, sex
 # Please do such things:
 # 1 - sort list by age and sex fields
-# 2 - somehow you need to get new list as old list without first two elements and last two elements. Print this new list
-# 3 - in new list calculate total numbers of "female"  and "male" and print it as small table.
+# 2 - somehow you need to get new list as old list without first
+# two elements and last two elements. Print this new list
+# 3 - in new list calculate total numbers of "female"
+# and "male" and print it as small table.
 # Example:
 # -----------------
 # | sex    | count |
@@ -12,8 +15,8 @@
 # |  female |  11  |
 # |   male  |  23  |
 # -----------------
-#  advice: female and male calculation can be done vs flat list, or you can find your own approach ;)
-
+#  advice: female and male calculation can be done vs flat list,
+# or you can find your own approach ;)
 
 people = [
     ('Alice', 32, 100, 'Johnson', 'female'),
@@ -58,6 +61,8 @@ people = [
 ]
 """
 
+from operator import itemgetter
+
 sep_num = 18
 people = [
     ('Alice', 32, 100, 'Johnson', 'female'),
@@ -98,17 +103,16 @@ people = [
     ('Julie', 55, 90, 'Clark', 'female'),
     ('Kenny', 38, 140, 'Harris', 'male'),
     ('Luna', 55, 170, 'Smith', 'female'),
-    ('Mike', 55, 55, 'Johnson', 'male')
+    ('Mike', 55, 55, 'Johnson', 'male'),
 ]
 print('-' * sep_num)
-from operator import itemgetter
-people.sort(key=itemgetter(1,4))
+people.sort(key=itemgetter(1, 4))
 print(*people, sep='\n')
 print('-' * sep_num)
 new_list = people[2:-2]
 print(*new_list, sep='\n')
-genders = [item [-1] for item in new_list]
-female_count =genders.count('female')
+genders = [item[-1] for item in new_list]
+female_count = genders.count('female')
 male_count = genders.count('male')
 print('-' * sep_num)
 print(f'|  female |  {female_count}  |')
